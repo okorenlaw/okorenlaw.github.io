@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>O'Koren Law Office, LLC | Lanesboro, MN</title>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto:300,400&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#002b5c;          /* legal blue */
+      --ink-dark:#072144;
+      --paper:#ffffff;
+      --muted:#f5f7fb;
+      --text:#333;
+      --accent:#b88a44;       /* brass/gold accent */
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Roboto',sans-serif;color:var(--text);line-height:1.6;background:var(--paper)}
+
+    header{background:var(--ink);color:#fff;position:fixed;inset:0 0 auto 0;z-index:100;padding:1rem 2rem}
+    .header-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-family:'Merriweather',serif;font-size:1.5rem;font-weight:700}
+    nav ul{display:flex;list-style:none}
+    nav li+li{margin-left:1.5rem}
+    nav a{color:#fff;text-decoration:none;font-weight:500}
+
+    .hero{
+      margin-top:72px; min-height:70vh; position:relative; display:grid; place-items:center; text-align:center; padding:4rem 2rem;
+      color:#fff; background:
+        /* no tiled SVG pattern */
+        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+    .hero h1{font-family:'Merriweather',serif;font-size:3rem;margin-bottom:.5rem;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+    .hero p{font-size:1.1rem;color:#e8f1ff;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+
+    .floating-icons{position:absolute;inset:0;pointer-events:none}
+    .floating-icons svg{position:absolute;width:70px;height:70px;opacity:.9;filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
+    .ink-stroke{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .gold-stroke{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+
+    @keyframes float {
+      0%,100% { transform:translateY(0) }
+      50%     { transform:translateY(-8px) }
+    }
+
+    .section{padding:4rem 2rem;max-width:1200px;margin:auto}
+    .section-title{font-family:'Merriweather',serif;font-size:2rem;text-align:center;color:var(--ink);margin-bottom:1.5rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+    .card{background:var(--muted);padding:2rem;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+    .card h3{font-family:'Merriweather',serif;color:var(--ink);margin-bottom:.5rem}
+
+    /* Center the two team cards perfectly */
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(260px, 360px)); /* exactly two columns */
+      gap:2rem;
+      justify-content:center;    /* center the columns as a group */
+      margin:0 auto;             /* center the grid container */
+      max-width:820px;           /* keeps the whole block centered visually */
+      text-align:center;         /* center text inside cards */
+    }
+    @media (max-width:780px){
+      .team-grid{
+        grid-template-columns:minmax(260px, 1fr); /* stack on small screens */
+        max-width:520px;
+      }
+    }
+
+    .google-map-container {
+      margin: 0 auto;
+      max-width: 800px;
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    }
+    .google-map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    footer{background:var(--ink-dark);color:#fff;text-align:center;padding:2rem 1rem;margin-top:2rem}
+    footer p+p{margin-top:.5rem}
+
+    @media (max-width:600px){
+      .hero h1{font-size:2.2rem}
+      nav ul{flex-direction:column}
+      nav li+li{margin-left:0;margin-top:.75rem}
+      .floating-icons svg{width:56px;height:56px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Inline SVG symbol defs (no external libs) -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <!-- Scales of Justice -->
+      <symbol id="icon-scales" viewBox="0 0 100 100">
+        <g class="ink-stroke">
+          <rect x="48" y="16" width="4" height="44" rx="2"/>
+          <rect x="28" y="24" width="44" height="4" rx="2"/>
+          <line x1="28" y1="24" x2="20" y2="40"/>
+          <line x1="28" y1="24" x2="36" y2="40"/>
+          <line x1="72" y1="24" x2="64" y2="40"/>
+          <line x1="72" y1="24" x2="80" y2="40"/>
+          <ellipse cx="28" cy="44" rx="12" ry="5"/>
+          <ellipse cx="72" cy="44" rx="12" ry="5"/>
+          <rect x="34" y="60" width="32" height="6" rx="3"/>
+        </g>
+      </symbol>
+
+      <!-- Gavel -->
+      <symbol id="icon-gavel" viewBox="0 0 100 100">
+        <g class="gold-stroke">
+          <rect x="56" y="56" width="26" height="10" rx="3" transform="rotate(-45 56 56)"/>
+          <rect x="46" y="46" width="12" height="24" rx="3" transform="rotate(-45 46 46)"/>
+          <rect x="18" y="78" width="46" height="6" rx="3"/>
+        </g>
+      </symbol>
+
+      <!-- Law book -->
+      <symbol id="icon-book" viewBox="0 0 100 100">
+        <g class="ink-stroke">
+          <rect x="22" y="20" width="56" height="60" rx="8"/>
+          <line x1="36" y1="20" x2="36" y2="80"/>
+          <line x1="30" y1="34" x2="46" y2="34"/>
+          <line x1="30" y1="44" x2="46" y2="44"/>
+          <line x1="30" y1="54" x2="46" y2="54"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">O'Koren Law Office, LLC</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#practice">Practice Areas</a></li>
+          <li><a href="#attorneys">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <h1>Protecting Your Rights, Championing Your Cause</h1>
+      <p>Serving Lanesboro, Minnesota</p>
+    </div>
+    <div class="floating-icons" aria-hidden="true"></div>
+  </section>
+
+  <section class="section" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>
+      At O'Koren Law Office, LLC, our mission is to provide clear guidance and practical solutions with compassion and integrity.
+      We are committed to achieving the best outcomes for our clients in Lanesboro and the surrounding communities.
+    </p>
+  </section>
+
+  <section class="section" id="practice">
+    <h2 class="section-title">Practice Areas</h2>
+    <div class="grid">
+      <!-- Added/Updated per request -->
+      <div class="card"><h3>Real Estate</h3><p>Residential and commercial transactions, closings, and property matters.</p></div>
+      <div class="card"><h3>Title Services</h3><p>Abstracting, examinations, and closing coordination.</p></div>
+      <div class="card"><h3>Title Insurance</h3><p>Protection against defects in title and ownership disputes.</p></div>
+      <div class="card"><h3>Business Law</h3><p>Contracts, compliance, and ongoing counsel for your company.</p></div>
+      <div class="card"><h3>Business Formation</h3><p>LLCs, corporations, and tailored entity structures to suit your goals.</p></div>
+      <div class="card"><h3>General Civil Matters</h3><p>Advice and representation for a broad range of civil issues.</p></div>
+      <div class="card"><h3>Probate</h3><p>Guidance through estate administration and related proceedings.</p></div>
+      <!-- Kept existing areas that were not removed -->
+      <div class="card"><h3>Estate Planning</h3><p>Crafting wills, trusts, and strategies to protect your legacy.</p></div>
+      <div class="card"><h3>Criminal Defense</h3><p>Defending your rights at every stage of the justice process.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="attorneys">
+    <h2 class="section-title">Our Team</h2>
+    <div class="team-grid">
+      <div class="card">
+        <h3>Joseph O'Koren</h3>
+        <p>Attorney<br/>
+        <a href="mailto:joe@okorenlawoffice.com">joe@okorenlawoffice.com</a></p>
+      </div>
+      <div class="card">
+        <h3>Corinna Mlenar</h3>
+        <p>Paralegal<br/>
+        <a href="mailto:cm@okorenlawoffice.com">cm@okorenlawoffice.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="card" style="margin:0 auto 1.5rem; max-width:620px; text-align:center;">
+      <p><strong>Phone:</strong> <a href="tel:+15074672317">(507) 467-2317</a></p>
+      <p><strong>Address:</strong> 204 Parkway Ave. N., P.O. Box 420, Lanesboro, MN</p>
+      <p><strong>Email:</strong> <a href="mailto:joe@okorenlawoffice.com">joe@okorenlawoffice.com</a> &nbsp;|&nbsp; <a href="mailto:cm@okorenlawoffice.com">cm@okorenlawoffice.com</a></p>
+    </div>
+
+    <!-- Interactive Google Map -->
+    <div class="google-map-container">
+      <iframe
+        src="https://www.google.com/maps?q=204%20Parkway%20Ave%20N%2C%20Lanesboro%2C%20MN%2055949&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>O'Koren Law Office, LLC | <a href="tel:+15074672317" style="color:#fff;text-decoration:underline">(507) 467-2317</a> | 204 Parkway Ave. N., P.O. Box 420, Lanesboro, MN</p>
+    <p>&copy; 2025 O'Koren Law Office, LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Add animated lawyer-themed SVGs to the hero
+    const icons = ['#icon-scales', '#icon-gavel', '#icon-book'];
+    const positions = [
+      { top: '14%', left: '8%'  },
+      { top: '18%', right: '10%' },
+      { bottom: '12%', left: '15%'}
+    ];
+    const layer = document.querySelector('.floating-icons');
+
+    icons.forEach((id, i) => {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox','0 0 100 100');
+      svg.style.animation = `float 4.5s ease-in-out ${i*0.8}s infinite`;
+      Object.assign(svg.style, positions[i]);
+
+      const use = document.createElementNS('http://www.w3.org/1999/xlink', 'use');
+      use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', id);
+      use.setAttribute('class', id.includes('gavel') ? 'gold-stroke' : 'ink-stroke');
+
+      svg.appendChild(use);
+      layer.appendChild(svg);
+    });
+  </script>
+</body>
+</html>
